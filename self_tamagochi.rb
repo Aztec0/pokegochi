@@ -1,17 +1,23 @@
 class Pokemon
-  def initialize(name)
+
+  attr_reader :name, :elem
+
+  def initialize(name, elem)
     @name = name
-    @type =
+    @type = elem
     @food = 10
     @energy = 10
     @healht = 10
     @love = 10
 
 p "#{@name} was born"
+    p"Your Pokemon type is: #{@type}"
   end
+
 
   def stats
     p "Name: #{@name}"
+    p "Type: #{@type}"
     p "Food: #{@food}"
     p "Energy: #{@energy}"
     p "Health: #{@healht}"
@@ -20,7 +26,7 @@ p "#{@name} was born"
   def eat
     p "#{@name} take some food"
     @food = 10
-    through_time
+    after_time
   end
 
   def sleeping
@@ -32,24 +38,24 @@ p "#{@name} was born"
     p "#{@name} sleep and have intresting dreams"
     p "#{@name} see #{dreams.sample}"
     @energy = 10
-    through_time
+    after_time
   end
 
   def health_point
 
     p "#{@name} take a medicines."
     @healht = 10
-    through_time
+    after_time
   end
 
   def care
 
     p "#{@name} have your care and happy."
     @love = 10
-    through_time
+    after_time
   end
 
-  def through_time
+  def after_time
     @food += rand(-5..5)
     check_food
     @energy += rand(-5..5)
@@ -59,6 +65,7 @@ p "#{@name} was born"
     @love += rand(-5..5)
     check_care
   end
+
 
   def check_food
     if @food < 9 && @food > 2
@@ -108,16 +115,28 @@ def menu
 end
 
 p "Choose type of pokemon"
-p "1.Water
-2.Fire
-3.Earth
-4.Electric"
+p "1. Water 2. Fire 3. Earth 4. Electric 5. Darkness"
 type = gets.to_i
+
+case type
+when 1
+  elem = "Water Type"
+when 2
+  elem = "Fire Type"
+when 3
+  elem = "Earth Type"
+when 4
+  elem = "Electric Type"
+when 5
+  elem = "Darkness Type"
+  else
+    p "Press, please 1-5. Check correct answer"
+end
 
 puts 'Please enter the name for your pockemongotchi:'
 name = gets.capitalize.chomp
 menu
-pockemon = Pokemon.new(name)
+pockemon = Pokemon.new(name, elem)
 
 
 
