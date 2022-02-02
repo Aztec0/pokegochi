@@ -58,12 +58,16 @@ p "#{@name} was born"
   def after_time
     @food += rand(-5..5)
     check_food
+    limit
     @energy += rand(-5..5)
     check_sleep
+    limit
     @healht += rand(-5..5)
     check_health
+    limit
     @love += rand(-5..5)
     check_care
+    limit
   end
 
 
@@ -103,6 +107,30 @@ p "#{@name} was born"
     end
   end
 
+  private
+
+  def limit
+    if @food >= 30
+      p "Your pokemon too full"
+      p "Params set: 10"
+      @food = 10
+    end
+    if @energy >= 30
+      p "Your pokemon too full"
+      p "Params set: 10"
+      @energy = 10
+    end
+    if @healht >= 30
+      p "Your pokemon too full"
+      p "Params set: 10"
+      @healt = 10
+    end
+    if @love >= 30
+      p "Your pokemon too full"
+      p "Params set: 10"
+      @love = 10
+    end
+  end
 
 end
 
