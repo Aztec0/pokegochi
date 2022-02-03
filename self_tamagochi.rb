@@ -5,10 +5,7 @@ class Pokemon
   def initialize(name, type)
     @name = name
     @type = type
-    @food = 10
-    @energy = 10
-    @healht = 10
-    @love = 10
+    @food = @energy = @healht = @love = 10
 
     p "#{@name} was born"
     p"Your Pokemon type is: #{@type}"
