@@ -1,19 +1,18 @@
 class Pokemon
 
-  attr_reader :name, :elem
+  attr_reader :name, :type
 
-  def initialize(name, elem)
+  def initialize(name, type)
     @name = name
-    @type = elem
+    @type = type
     @food = 10
     @energy = 10
     @healht = 10
     @love = 10
 
-p "#{@name} was born"
+    p "#{@name} was born"
     p"Your Pokemon type is: #{@type}"
   end
-
 
   def stats
     p "Name: #{@name}"
@@ -23,6 +22,7 @@ p "#{@name} was born"
     p "Health: #{@healht}"
     p "Love: #{@love}"
   end
+  
   def eat
     p "#{@name} take some food"
     @food = 10
@@ -148,15 +148,15 @@ type = gets.to_i
 
 case type
 when 1
-  elem = "Water Type"
+  type = "Water Type"
 when 2
-  elem = "Fire Type"
+  type = "Fire Type"
 when 3
-  elem = "Earth Type"
+  type = "Earth Type"
 when 4
-  elem = "Electric Type"
+  type = "Electric Type"
 when 5
-  elem = "Darkness Type"
+  type = "Darkness Type"
   else
     p "Press, please 1-5. Check correct answer"
 end
@@ -164,7 +164,7 @@ end
 puts 'Please enter the name for your pockemongotchi:'
 name = gets.capitalize.chomp
 menu
-pockemon = Pokemon.new(name, elem)
+pockemon = Pokemon.new(name, type)
 
 
 
